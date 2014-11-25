@@ -141,3 +141,19 @@ UNK 4   120 22.30%
 UNK 5   561 22.85%
 UNK 6   409 22.85%
 Time taken: 277.312 seconds, Fetched: 35 row(s)
+
+-- One block radius around MSG
+-- top: 40.752552, -73.994297
+-- bottom: 40.748878, -73.993428
+-- right: 40.749919, -73.990231
+-- left: 40.750732, -73.995960
+
+SET window=0.005;
+SELECT count(*) FROM trip_data_1 WHERE dropoff_latitude > 40.750556 - ${hiveconf:window} AND dropoff_latitude < 40.750556 + ${hiveconf:window} AND dropoff_longitude > -73.993611 - ${hiveconf:window} AND dropoff_longitude < -73.993611 + ${hiveconf:window} AND dropoff_datetime > '2013-01-07 19:00:00' AND dropoff_datetime < '2013-01-07 19:30:00';
+891
+
+SELECT count(*) FROM trip_data_1 WHERE dropoff_latitude > 40.750556 - ${hiveconf:window} AND dropoff_latitude < 40.750556 + ${hiveconf:window} AND dropoff_longitude > -73.993611 - ${hiveconf:window} AND dropoff_longitude < -73.993611 + ${hiveconf:window} AND dropoff_datetime > '2013-01-14 19:00:00' AND dropoff_datetime < '2013-01-14 19:30:00';
+565
+
+
+
