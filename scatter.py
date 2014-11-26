@@ -15,8 +15,15 @@ if len(sys.argv) < 4:
 
 filename, x_col, y_col = sys.argv[1:4]
 
-x_lbl = sys.argv[4]
-y_lbl = sys.argv[5]
+try:
+  x_lbl = sys.argv[4]
+except IndexError:
+  x_lbl = "x axis"
+
+try:
+  y_lbl = sys.argv[5]
+except IndexError:
+  y_lbl = "y axis"
 
 fileData = np.genfromtxt(filename, delimiter=',')
 
