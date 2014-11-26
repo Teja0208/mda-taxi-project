@@ -148,6 +148,7 @@ Time taken: 277.312 seconds, Fetched: 35 row(s)
 -- right: 40.749919, -73.990231
 -- left: 40.750732, -73.995960
 
+-- How many people are dropped off at MSG/Penn Station on Knicks game day and non Knicks game day. (Was there another event on the 14th that wasn't the Knics?)
 SET window=0.005;
 SELECT count(*) FROM trip_data_1 WHERE dropoff_latitude > 40.750556 - ${hiveconf:window} AND dropoff_latitude < 40.750556 + ${hiveconf:window} AND dropoff_longitude > -73.993611 - ${hiveconf:window} AND dropoff_longitude < -73.993611 + ${hiveconf:window} AND dropoff_datetime > '2013-01-07 19:00:00' AND dropoff_datetime < '2013-01-07 19:30:00';
 891
@@ -156,4 +157,21 @@ SELECT count(*) FROM trip_data_1 WHERE dropoff_latitude > 40.750556 - ${hiveconf
 565
 
 
+--------
 
+-- How many Manhattan taxis drive to JFK
+
+-- left: 40.646292, -73.799394
+-- top: 40.652837, -73.785017
+
+SELECT count(*) FROM trip_data_1 WHERE dropoff_latitude < 40.652837 AND dropoff_longitude > -73.799394;
+367120
+
+---------
+
+-- Average distance each cabbie drives
+
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' SELECT hack_license, count(*), avg(trip_distance) FROM trip_data_1 GROUP BY hack_license;
+
+--
+-- Lazy cabbie: 0A22C2D7A7AF74AE37381D399F6315EC
