@@ -179,3 +179,21 @@ INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FO
 
 INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' SELECT * FROM trip_data_1 WHERE hack_license = '0A22C2D7A7AF74AE37381D399F6315EC';
 
+
+-- Tip percentage distribution
+
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+select tip_amount/total_amount, count(*) from trip_fare_1 where payment_type = 'CRD' group by tip_amount/total_amount;
+./scatter.py csv/tip_percentage_count.csv 0 1 "Tip Percentage" "# of Tippers"
+
+-- Fare amount vs Tip percentage
+
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+select round(total_amount), avg(tip_amount) from trip_fare_1 where payment_type = 'CRD' group by round(total_amount);
+./scatter.py csv/average_tip_for_fare.csv 0 1 "Fare" "Average tip"
+
+-- Tip percentage histogram
+
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+select histogram_numeric(tip_amount/total_amount, 100) from trip_fare_1 where payment_type = 'CRD';
+./scatter.py csv/tip_count_histo.csv 0 1 "Tip Percentage" "# of Tippers"
