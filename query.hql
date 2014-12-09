@@ -197,3 +197,32 @@ select round(total_amount), avg(tip_amount) from trip_fare_1 where payment_type 
 INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 select histogram_numeric(tip_amount/total_amount, 100) from trip_fare_1 where payment_type = 'CRD';
 ./scatter.py csv/tip_count_histo.csv 0 1 "Tip Percentage" "# of Tippers"
+
+-- Trip length historgram
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+select histogram_numeric(trip_distance, 1000) from trip_data_1;
+./scatter.py csv/tip_count_histo.csv 0 1 "Tip Percentage" "# of Tippers"
+
+-- Average distance each cabbie drives
+
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT mainquery.* from trip_data_1 mainquery JOIN
+  (SELECT hack_license, count(*) as cnt, avg(trip_distance) as dist FROM trip_data_1 GROUP BY hack_license) as subquery
+  ON subquery.hack_license = mainquery.hack_license WHERE subquery.dist > 0.1 AND subquery.dist < 0.5;
+
+cat /Users/dgopstein/nyu/taxis/hive/output/* > data/trips_from_lazy_drivers.csv
+
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT mainquery.* from trip_data_1 mainquery JOIN
+  (SELECT hack_license, count(*) as cnt, avg(trip_distance) as dist FROM trip_data_1 GROUP BY hack_license) as subquery
+    ON subquery.hack_license = mainquery.hack_license WHERE subquery.dist > 0.1 AND subquery.dist < 0.5 AND
+    mainquery.trip_distance < 1 AND pickup_latitude + abs(pickup_longitude) + dropoff_latitude + abs(dropoff_longitude) > 220;
+
+    cat /Users/dgopstein/nyu/taxis/hive/output/* > data/trips_from_lazy_drivers_cleaned.csv
+
+-- Bucket taxi pickups for frequency
+SELECT mainquery.* from trip_data_1 mainquery JOIN
+  (SELECT hack_license, count(*) as cnt, avg(trip_distance) as dist FROM trip_data_1 GROUP BY hack_license) as subquery
+    ON subquery.hack_license = mainquery.hack_license WHERE subquery.dist > 0.1 AND subquery.dist < 0.5 AND
+    mainquery.trip_distance < 1 AND pickup_latitude + abs(pickup_longitude) + dropoff_latitude + abs(dropoff_longitude) > 220
+    GROUP BY round(pickup_latitude, 3), round(pickup_longitude, 3);
