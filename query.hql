@@ -237,3 +237,4 @@ SELECT mainquery.* from trip_data_1 mainquery JOIN
     AND subquery.cnt > 400;
 
     cat /Users/dgopstein/nyu/taxis/hive/output/* > data/trips_from_lazy_drivers_frequent.csv
+
