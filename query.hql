@@ -221,8 +221,19 @@ SELECT mainquery.* from trip_data_1 mainquery JOIN
     cat /Users/dgopstein/nyu/taxis/hive/output/* > data/trips_from_lazy_drivers_cleaned.csv
 
 -- Bucket taxi pickups for frequency
+SELECT round(pickup_latitude, 3), round(pickup_longitude, 3), count(*) as cnt from trip_data_1 mainquery JOIN
+  (SELECT hack_license, count(*) as cnt, avg(trip_distance) as dist FROM trip_data_1 GROUP BY hack_license) as subquery
+    ON subquery.hack_license = mainquery.hack_license WHERE subquery.dist > 0.1 AND subquery.dist < 0.5 AND
+    mainquery.trip_distance < 1 AND pickup_latitude + abs(pickup_longitude) + dropoff_latitude + abs(dropoff_longitude) > 220
+    GROUP BY round(pickup_latitude, 3), round(pickup_longitude, 3) order by cnt;
+
+-- Only look at drivers with more than 400 trips
+
+INSERT OVERWRITE LOCAL DIRECTORY '/Users/dgopstein/nyu/taxis/hive/output' ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 SELECT mainquery.* from trip_data_1 mainquery JOIN
   (SELECT hack_license, count(*) as cnt, avg(trip_distance) as dist FROM trip_data_1 GROUP BY hack_license) as subquery
     ON subquery.hack_license = mainquery.hack_license WHERE subquery.dist > 0.1 AND subquery.dist < 0.5 AND
     mainquery.trip_distance < 1 AND pickup_latitude + abs(pickup_longitude) + dropoff_latitude + abs(dropoff_longitude) > 220
-    GROUP BY round(pickup_latitude, 3), round(pickup_longitude, 3);
+    AND subquery.cnt > 400;
+
+    cat /Users/dgopstein/nyu/taxis/hive/output/* > data/trips_from_lazy_drivers_frequent.csv

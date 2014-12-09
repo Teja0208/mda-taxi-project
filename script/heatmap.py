@@ -3,17 +3,17 @@
 # Extract 2 columns from a csv and plot it in matplotlib
 
 def usage():
-    print "Usage: heatmap.py x-axis-column y-axis-column"
-    print 'Example usage: ./heaptmap.py hack_distance.csv 1 2'
+    print "Usage: heatmap.py x-axis-column y-axis-column nbins"
+    print 'Example usage: ./heaptmap.py hack_distance.csv 1 2 500'
 
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-if len(sys.argv) < 4:
+if len(sys.argv) < 5:
     usage()
 
-filename, x_col, y_col = sys.argv[1:4]
+filename, x_col, y_col, nbins = sys.argv[1:5]
 
 fileData = np.genfromtxt(filename, delimiter=',')
 
@@ -27,9 +27,21 @@ for row in fileData:
     x.append(x_val)
     y.append(y_val)
 
-heatmap, xedges, yedges = np.histogram2d(x, y, bins=500)
-extent = [xedges[0], xedges[-1], yedges[0], yedges[-1]]
+#heatmap, xedges, yedges = np.histogram2d(x, y, bins=int(nbins))
+#extent = [xedges[0], xedges[-1], yedges[0], yedges[-1]]
+#
+#plt.clf()
+#plt.imshow(heatmap, extent=extent)
+#plt.show()
 
-plt.clf()
-plt.imshow(heatmap, extent=extent)
-plt.show()
+
+import heatmap
+pts = []
+for a,b in zip(x,y):
+    pts.append((x, y))
+
+print "Processing %d points..." % len(pts)
+
+hm = heatmap.Heatmap()
+img = hm.heatmap(pts)
+img.save("classic.png")
