@@ -45,3 +45,4 @@ print "Processing %d points..." % len(pts)
 hm = heatmap.Heatmap()
 img = hm.heatmap(pts)
 img.save("classic.png")
+
