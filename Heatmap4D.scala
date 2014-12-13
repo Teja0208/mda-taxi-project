@@ -32,8 +32,9 @@ object Heatmap4D {
            ).flatten
     }.flatten
 
+  //val size = 200
+  val size = 100
   def main(args: Array[String]) {
-    val size = 200
     val s: Seq[V4D] =
         args.headOption.map{ filename =>
           Source.fromFile(filename).getLines.map(_.split(",").map(x => (x.toFloat * size).toInt)).map{ case Array(a: Int, b: Int, c: Int, d: Int) => V4D(a, b, c, d) }.toSeq
@@ -43,7 +44,7 @@ object Heatmap4D {
   }
 
   def heatmap(samples: Seq[V4D]) = {
-    val hm = Heatmap4D(200, 200)
+    val hm = Heatmap4D(size, size)
 
     val s = samples
     println(s"mapping ${s.size} vectors")
@@ -83,7 +84,7 @@ case class Heatmap4D(width: Int, height: Int) {
 
   val maxMagnitude = sqrt(sqr(width) + sqr(height))
 
-  val radius = 5
+  val radius = 8
 
   def gradientValue(p1: V4D, p2: V4D): Int = {
     //val colorDepth = radius
@@ -129,7 +130,7 @@ case class Heatmap4D(width: Int, height: Int) {
     val printerval = 10
     print(s"rendering ${printerval} [")
     val weights = gradientMap.view./*par.*/zipWithIndex.flatMap { case (a, aI) =>
-      if ( aI % 10 == 0 ) print(","+aI);
+      if ( aI % 10 == 0 ) print("aI: "+aI);
       a.view.zipWithIndex.flatMap { case (b, bI) =>
         b.view.zipWithIndex.flatMap { case (c, cI) =>
           c.view.zipWithIndex.map { case (d, dI) =>
@@ -146,12 +147,31 @@ case class Heatmap4D(width: Int, height: Int) {
 
     val img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB)
 
+    def interpColors(x: Float) = {
+      val colors = Seq(Color.BLUE, Color.GREEN, Color.YELLOW, Color.ORANGE, Color.RED, Color.RED, Color.RED)
+      
+      //val start = (x * (colors.size - 2))
+      //val startI = start.toInt
+      //val offset = start - startI
+      val offset = x
+      //val Seq(a: Color, b: Color) = colors.slice(startI, startI + 2)
+      val a = Color.BLACK
+      val b = Color.WHITE
+
+      val channels = 
+       (offset * (a.getRed()/255.0) + (1-offset) * (b.getRed()/255.0),
+        offset * (a.getGreen()/255.0) + (1-offset) * (b.getGreen()/255.0),
+        offset * (a.getBlue()/255.0) + (1-offset) * (b.getBlue()/255.0))
+
+      new Color(channels._1.toFloat, channels._2.toFloat, channels._3.toFloat)
+    }
+
     val g2d = img.createGraphics();
     g2d.setBackground(Color.WHITE);
     g2d.setColor(Color.BLACK);
     sorted.foreach { case (V4D(a, b, c, d), weight) =>
-      val intensity = 3 * (weight / maxValue.toFloat)
-      g2d.setColor(new Color())
+      val intensity = weight / maxValue.toFloat
+      g2d.setColor( interpColors(intensity) )
 
       g2d.setStroke(new BasicStroke(2));
       g2d.drawLine(a, b, c, d)
