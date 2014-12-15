@@ -1,0 +1,197 @@
+nta_code,nta_name,p_avg_tip,d_avg_tip,total_avg,diff_dropoff_pickup
+BK09,Brooklyn Heights-Cobble Hill,3.25,3.66,3.455,0.41
+BK17,Sheepshead Bay-Gerritsen Beach-Manhattan Beach,3.7,7.61,5.655,3.91
+BK19,Brighton Beach,4.19,7.38,5.785,3.19
+BK21,Seagate-Coney Island,6.38,6.86,6.62,0.48
+BK23,West Brighton,4.33,7.89,6.11,3.56
+BK25,Homecrest,3.21,6.53,4.87,3.32
+BK26,Gravesend,5.52,7.2,6.36,1.68
+BK27,Bath Beach,6.36,7.21,6.785,0.85
+BK28,Bensonhurst West,4.41,6.9,5.655,2.49
+BK29,Bensonhurst East,3.88,7.22,5.55,3.34
+BK30,Dyker Heights,3.85,6.61,5.23,2.76
+BK31,Bay Ridge,4.27,6.71,5.49,2.44
+BK32,Sunset Park West,3.71,5,4.355,1.29
+BK33,Carroll Gardens-Columbia Street-Red Hook,3.4,4.12,3.76,0.72
+BK34,Sunset Park East,3.78,5.43,4.605,1.65
+BK35,Stuyvesant Heights,2.75,3.67,3.21,0.92
+BK37,Park Slope-Gowanus,3.15,4.49,3.82,1.34
+BK38,DUMBO-Vinegar Hill-Downtown Brooklyn-Boerum Hill,2.96,3.64,3.3,0.68
+BK40,Windsor Terrace,3.56,5.45,4.505,1.89
+BK41,Kensington-Ocean Parkway,3.68,5.42,4.55,1.74
+BK42,Flatbush,3.62,5.38,4.5,1.76
+BK43,Midwood,3.56,6.33,4.945,2.77
+BK44,Madison,3.4,7.15,5.275,3.75
+BK45,Georgetown-Marine Park-Bergen Beach-Mill Basin,4.74,7.62,6.18,2.88
+BK46,Ocean Parkway South,2.97,6.11,4.54,3.14
+BK50,Canarsie,3.67,5.01,4.34,1.34
+BK58,Flatlands,3.28,5.59,4.435,2.31
+BK60,Prospect Lefferts Gardens-Wingate,3.04,4.42,3.73,1.38
+BK61,Crown Heights North,3.13,4.14,3.635,1.01
+BK63,Crown Heights South,3.19,4.23,3.71,1.04
+BK64,Prospect Heights,3.07,4.22,3.645,1.15
+BK68,Fort Greene,2.87,3.58,3.225,0.71
+BK69,Clinton Hill,2.76,3.68,3.22,0.92
+BK72,Williamsburg,2.57,2.95,2.76,0.38
+BK73,North Side-South Side,2.7,3.18,2.94,0.48
+BK75,Bedford,2.63,3.56,3.095,0.93
+BK76,Greenpoint,2.82,3.41,3.115,0.59
+BK77,Bushwick North,2.89,3.87,3.38,0.98
+BK78,Bushwick South,2.72,3.57,3.145,0.85
+BK79,Ocean Hill,3.54,3.92,3.73,0.38
+BK81,Brownsville,3.15,4.01,3.58,0.86
+BK82,East New York,3.97,4.56,4.265,0.59
+BK83,Cypress Hills-City Line,4.91,5.07,4.99,0.16
+BK85,East New York (Pennsylvania Ave),3.28,4.27,3.775,0.99
+BK88,Borough Park,2.62,5.16,3.89,2.54
+BK90,East Williamsburg,2.71,3.35,3.03,0.64
+BK91,East Flatbush-Farragut,3.11,4.45,3.78,1.34
+BK93,Starrett City,4.69,4.54,4.615,-0.15
+BK95,Erasmus,2.99,4.41,3.7,1.42
+BK96,Rugby-Remsen Village,2.85,4.62,3.735,1.77
+BK99,park-cemetery-etc-Brooklyn,3.17,4.16,3.665,0.99
+BX01,Claremont-Bathgate,2.82,3.82,3.32,1
+BX03,Eastchester-Edenwald-Baychester,5.52,6.05,5.785,0.53
+BX05,Bedford Park-Fordham North,2.81,4.91,3.86,2.1
+BX06,Belmont,4.94,6.3,5.62,1.36
+BX07,Bronxdale,3.53,5.38,4.455,1.85
+BX08,West Farms-Bronx River,3.24,4.05,3.645,0.81
+BX09,Soundview-Castle Hill-Clason Point-Harding Park,3,4.57,3.785,1.57
+BX10,Pelham Bay-Country Club-City Island,4.08,6.89,5.485,2.81
+BX13,Co-op City,3.38,5.94,4.66,2.56
+BX14,East Concourse-Concourse Village,2.81,3.68,3.245,0.87
+BX17,East Tremont,2.63,4.15,3.39,1.52
+BX22,North Riverdale-Fieldston-Riverdale,4.62,6.98,5.8,2.36
+BX26,Highbridge,3.08,3.58,3.33,0.5
+BX27,Hunts Point,3.06,3.94,3.5,0.88
+BX28,Van Cortlandt Village,3,5.29,4.145,2.29
+BX29,Spuyten Duyvil-Kingsbridge,3.89,6.19,5.04,2.3
+BX30,Kingsbridge Heights,2.7,4.52,3.61,1.82
+BX31,Allerton-Pelham Gardens,5.13,6.37,5.75,1.24
+BX33,Longwood,2.85,3.77,3.31,0.92
+BX34,Melrose South-Mott Haven North,2.62,3.14,2.88,0.52
+BX35,Morrisania-Melrose,2.39,3.59,2.99,1.2
+BX36,University Heights-Morris Heights,2.52,3.5,3.01,0.98
+BX37,Van Nest-Morris Park-Westchester Square,3.32,5.75,4.535,2.43
+BX39,Mott Haven-Port Morris,2.6,3.04,2.82,0.44
+BX40,Fordham South,2.85,4.09,3.47,1.24
+BX41,Mount Hope,2.46,3.74,3.1,1.28
+BX43,Norwood,4.24,5.95,5.095,1.71
+BX44,Williamsbridge-Olinville,2.77,5.16,3.965,2.39
+BX46,Parkchester,2.93,4.95,3.94,2.02
+BX49,Pelham Parkway,3.47,6.26,4.865,2.79
+BX52,Schuylerville-Throgs Neck-Edgewater Park,3.55,6.47,5.01,2.92
+BX55,Soundview-Bruckner,3,4.08,3.54,1.08
+BX59,Westchester-Unionport,2.44,4.3,3.37,1.86
+BX62,Woodlawn-Wakefield,4.74,6.92,5.83,2.18
+BX63,West Concourse,2.97,3.86,3.415,0.89
+BX75,Crotona Park East,2.48,4.06,3.27,1.58
+BX98,Rikers Island,3.36,3.59,3.475,0.23
+BX99,park-cemetery-etc-Bronx,3.8,6.01,4.905,2.21
+JFK,John F Kennedy International Airport,8.74,9.6,9.17,0.86
+LGA,La Guardia Airport,6.44,6.64,6.54,0.2
+MN01,Marble Hill-Inwood,3.68,5.09,4.385,1.41
+MN03,Central Harlem North-Polo Grounds,2.61,3.08,2.845,0.47
+MN04,Hamilton Heights,2.95,3.44,3.195,0.49
+MN06,Manhattanville,2.64,2.86,2.75,0.22
+MN09,Morningside Heights,2.53,2.5,2.515,-0.03
+MN11,Central Harlem South,2.49,2.71,2.6,0.22
+MN12,Upper West Side,2.19,2.21,2.2,0.02
+MN13,Hudson Yards-Chelsea-Flatiron-Union Square,2.13,1.98,2.055,-0.15
+MN14,Lincoln Square,2.14,2.09,2.115,-0.05
+MN15,Clinton,2.26,2.19,2.225,-0.07
+MN17,Midtown-Midtown South,2.34,2.23,2.285,-0.11
+MN19,Turtle Bay-East Midtown,2.26,2.19,2.225,-0.07
+MN20,Murray Hill-Kips Bay,2.1,2.01,2.055,-0.09
+MN21,Gramercy,2.05,1.92,1.985,-0.13
+MN22,East Village,2.2,2.03,2.115,-0.17
+MN23,West Village,2.14,2,2.07,-0.14
+MN24,SoHo-TriBeCa-Civic Center-Little Italy,2.35,2.26,2.305,-0.09
+MN25,Battery Park City-Lower Manhattan,3,2.92,2.96,-0.08
+MN27,Chinatown,2.37,2.25,2.31,-0.12
+MN28,Lower East Side,2.35,2.25,2.3,-0.1
+MN31,Lenox Hill-Roosevelt Island,2.14,2.09,2.115,-0.05
+MN32,Yorkville,2.26,2.24,2.25,-0.02
+MN33,East Harlem South,2.25,2.18,2.215,-0.07
+MN34,East Harlem North,2.37,2.31,2.34,-0.06
+MN35,Washington Heights North,3.6,4.67,4.135,1.07
+MN36,Washington Heights South,3.52,3.9,3.71,0.38
+MN40,Upper East Side-Carnegie Hill,2.02,1.92,1.97,-0.1
+MN50,Stuyvesant Town-Cooper Village,2.14,2.16,2.15,0.02
+MN99,park-cemetery-etc-Manhattan,2.22,2.22,2.22,0
+QN01,South Jamaica,8.96,4.99,6.975,-3.97
+QN02,Springfield Gardens North,4.92,4.6,4.76,-0.32
+QN03,Springfield Gardens South-Brookville,8.69,5.43,7.06,-3.26
+QN05,Rosedale,5.01,5.65,5.33,0.64
+QN06,Jamaica Estates-Holliswood,4.36,6.01,5.185,1.65
+QN07,Hollis,3.97,5.89,4.93,1.92
+QN08,St. Albans,5.46,5.04,5.25,-0.42
+QN10,Breezy Point-Belle Harbor-Rockaway Park-Broad Channel,4.06,9.88,6.97,5.82
+QN12,Hammels-Arverne-Edgemere,4.3,8.84,6.57,4.54
+QN15,Far Rockaway-Bayswater,4.53,5.98,5.255,1.45
+QN17,Forest Hills,3.66,5.36,4.51,1.7
+QN18,Rego Park,4.06,4.6,4.33,0.54
+QN19,Glendale,3.7,5.15,4.425,1.45
+QN20,Ridgewood,3.11,4.24,3.675,1.13
+QN21,Middle Village,4.29,4.97,4.63,0.68
+QN22,Flushing,3.33,5.16,4.245,1.83
+QN23,College Point,3.71,5.58,4.645,1.87
+QN25,Corona,6.59,4.16,5.375,-2.43
+QN26,North Corona,3.32,3.77,3.545,0.45
+QN27,East Elmhurst,5.58,5.63,5.605,0.05
+QN28,Jackson Heights,3.3,4.32,3.81,1.02
+QN29,Elmhurst,3.58,3.98,3.78,0.4
+QN30,Maspeth,6.08,4.12,5.1,-1.96
+QN31,Hunters Point-Sunnyside-West Maspeth,3.32,3.4,3.36,0.08
+QN33,Cambria Heights,5.31,5.19,5.25,-0.12
+QN34,Queens Village,4.57,5.95,5.26,1.38
+QN35,Briarwood-Jamaica Hills,6.97,5.39,6.18,-1.58
+QN37,Kew Gardens Hills,3.76,5.2,4.48,1.44
+QN38,Pomonok-Flushing Heights-Hillcrest,3.77,5.6,4.685,1.83
+QN41,Fresh Meadows-Utopia,4.03,5.73,4.88,1.7
+QN42,Oakland Gardens,3.87,7.04,5.455,3.17
+QN43,Bellerose,4.73,6.39,5.56,1.66
+QN44,Glen Oaks-Floral Park-New Hyde Park,3.26,6.9,5.08,3.64
+QN45,Douglas Manor-Douglaston-Little Neck,4.78,7.82,6.3,3.04
+QN46,Bayside-Bayside Hills,4.53,7.51,6.02,2.98
+QN47,Ft. Totten-Bay Terrace-Clearview,4.34,7.17,5.755,2.83
+QN48,Auburndale,3.11,6.68,4.895,3.57
+QN49,Whitestone,4.25,6.43,5.34,2.18
+QN50,Elmhurst-Maspeth,2.9,3.6,3.25,0.7
+QN51,Murray Hill,4.07,6.21,5.14,2.14
+QN52,East Flushing,3.38,6.09,4.735,2.71
+QN53,Woodhaven,3.83,5.22,4.525,1.39
+QN54,Richmond Hill,5.96,5.88,5.92,-0.08
+QN55,South Ozone Park,7.92,7.88,7.9,-0.04
+QN56,Ozone Park,5.73,5.7,5.715,-0.03
+QN57,Lindenwood-Howard Beach,6.36,7.1,6.73,0.74
+QN60,Kew Gardens,5.16,5.9,5.53,0.74
+QN61,Jamaica,8.06,4.9,6.48,-3.16
+QN62,Queensboro Hill,3.64,5.28,4.46,1.64
+QN63,Woodside,2.9,3.44,3.17,0.54
+QN66,Laurelton,4.41,5.71,5.06,1.3
+QN68,Queensbridge-Ravenswood-Long Island City,2.6,2.89,2.745,0.29
+QN70,Astoria,2.91,3.54,3.225,0.63
+QN71,Old Astoria,2.99,3.6,3.295,0.61
+QN72,Steinway,3.39,4.1,3.745,0.71
+QN76,Baisley Park,9.08,5.35,7.215,-3.73
+QN99,park-cemetery-etc-Queens,6.71,5.47,6.09,-1.24
+SI01,Annadale-Huguenot-Prince's Bay-Eltingville,4.42,13.75,9.085,9.33
+SI05,New Springville-Bloomfield-Travis,3.06,10.92,6.99,7.86
+SI07,Westerleigh,5.97,11.21,8.59,5.24
+SI08,Grymes Hill-Clifton-Fox Hills,4.55,10.02,7.285,5.47
+SI11,Charleston-Richmond Valley-Tottenville,7.4,17.3,12.35,9.9
+SI12,Mariner's Harbor-Arlington-Port Ivory-Graniteville,2.31,11.82,7.065,9.51
+SI14,Grasmere-Arrochar-Ft. Wadsworth,3.5,10.03,6.765,6.53
+SI22,West New Brighton-New Brighton-St. George,2.98,10.19,6.585,7.21
+SI24,Todt Hill-Emerson Hill-Heartland Village-Lighthouse Hill,2.67,9.32,5.995,6.65
+SI25,Oakwood-Oakwood Beach,4.65,12.98,8.815,8.33
+SI28,Port Richmond,2.16,11.5,6.83,9.34
+SI32,Rossville-Woodrow,1.38,15.05,8.215,13.67
+SI35,New Brighton-Silver Lake,3.2,11.28,7.24,8.08
+SI36,Old Town-Dongan Hills-South Beach,5.5,10.4,7.95,4.9
+SI37,Stapleton-Rosebank,3.42,10.02,6.72,6.6
+SI45,New Dorp-Midland Beach,4.97,11.6,8.285,6.63
+SI48,Arden Heights,2.5,12.75,7.625,10.25
+SI54,Great Kills,2.33,13.12,7.725,10.79
+SI99,park-cemetery-etc-Staten Island,3.31,4.8,4.055,1.49
