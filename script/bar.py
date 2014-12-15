@@ -33,7 +33,7 @@ for row in fileData:
     x.append(row[int(x_col)])
     y.append(row[int(y_col)])
 
-plt.bar(x, y, width='.1')
+plt.bar(x, y, width=1)
 plt.xlabel(x_lbl)
 plt.ylabel(y_lbl)
 plt.show()
