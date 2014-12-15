@@ -35,10 +35,7 @@ object Heatmap4D {
   //val size = 200
   val size = 100
   def main(args: Array[String]) {
-    val s: Seq[V4D] =
-        args.headOption.map{ filename =>
-          Source.fromFile(filename).getLines.map(_.split(",").map(x => (x.toFloat * size).toInt)).map{ case Array(a: Int, b: Int, c: Int, d: Int) => V4D(a, b, c, d) }.toSeq
-        }.getOrElse(samples)
+    val s: Seq[V4D] = args.headOption.map(parseFile)).getOrElse(samples)
 
     heatmap(s)
   }
@@ -66,6 +63,9 @@ object Heatmap4D {
       }
     }
   }
+
+  def parseFile(filename: String): Option[Seq[V4D]] = 
+    Source.fromFile(filename).getLines.map(_.split(",").map(x => (x.toFloat * size).toInt)).map{ case Array(a: Int, b: Int, c: Int, d: Int) => V4D(a, b, c, d) }.toSeq
 }
 
 import Heatmap4D.sqr
@@ -181,58 +181,19 @@ case class Heatmap4D(width: Int, height: Int) {
   }
 }
 
+import Heatmap4D._
 
 
+object Histo4D {
+  def histo(vects: Seq[V4D]) = {
+    // percentage of interest
+    def poi = .05
+  }
 
+  def main(args: Array[String]) {
+    val s: Seq[V4D] = args.headOption.map(parseFile)).getOrElse(samples)
 
-
-
-
-
-
-
-
-import swing._                                                                
-
-import java.awt.image.BufferedImage                                           
-import java.io.File                                                           
-import javax.imageio.ImageIO                                                  
-
-class ImagePanel(bufferedImage: BufferedImage) extends Panel {                                                                             
-  override def paintComponent(g:Graphics2D) = {                                                                           
-    if (null != bufferedImage) g.drawImage(bufferedImage, 0, 0, null)         
-  }                                                                           
-}                                                                             
-
-case class ImagePanelDemo(img: BufferedImage) extends SimpleSwingApplication {
-  def top = new MainFrame { title = "Image Panel Demo"; contents = new ImagePanel(img)}
-}
-
-object ShowImage {
-  def showImage(path: String) { showImage(javax.imageio.ImageIO.read(new java.io.File(path))) }
-  def showImage(img: BufferedImage) {
-    import javax.swing._
-    import java.awt.{Dimension, Graphics}
-  
-    val frame = new JFrame()
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)
-  
-    val panel = new JPanel(){
-        override def paintComponent(g: Graphics){
-            super.paintComponent(g)
-            val g2 = g.create()
-            g2.drawImage(img, 0, 0, getWidth(), getHeight(), null)
-            g2.dispose()
-        }
-  
-        override def getPreferredSize = {
-            new Dimension(img.getWidth(), img.getHeight())
-        }
-    }
-  
-    frame.add(panel)
-    frame.pack()
-    frame.setLocationRelativeTo(null)
-    frame.setVisible(true)
+    histo(s)
   }
 }
+
